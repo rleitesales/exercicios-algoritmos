@@ -22,7 +22,7 @@ enum NaveStates {
 
 // Verifica o nível de combustível e retorna se é necessário realizar um abastecimento.
 int haveGas(int gas) {
-    printf("\nVerificando nivel do combustivel...\n[%d] restante\n", 
+    printf("\nVerificando nivel do combustivel...\n[%d+/+] restante\n", 
         gas
     );
 
@@ -104,12 +104,12 @@ int main() {
     // Tem gasolina suficiente?
     if (!haveGas(*pGas))
     { // Reabasteça!
-        for (int i = *pGas; i <MAX_GAS; i+=GAS_REGEN_RATE)
+        for (int i = *pGas; i < MAX_GAS; i+= GAS_REGEN_RATE)
         {
             *pGas += GAS_REGEN_RATE;
-            printf("Reabastecendo... [%d]\n", *pGas);
+            printf("Reabastecendo... [%d+/+]\n", *pGas);
 
-            if (*pGas >MAX_GAS) { *pGas =MAX_GAS; }
+            if (*pGas > MAX_GAS) { *pGas = MAX_GAS; }
         }
         printf("Reabastecimento completo!\n");
     }
@@ -133,5 +133,7 @@ int main() {
         printf("Protocolo de Protecao desativado!\n");
     }
 
+    // Fim do programa!
+    printf("\nA manutencao da nave esta completa!\n");
     return 0;
 }
