@@ -1,2 +1,2 @@
 # exercicios-algoritmos
-Guardando alguns algoritmos que desenvolvi
+Guardando alguns algoritmos que desenvolvi.
