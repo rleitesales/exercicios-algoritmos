@@ -1,3 +1,5 @@
+// Se der algum erro no terminal, use CTRL+C ou CTRL+SHIFT+ESC e feche a tarefa (este programa).
+
 #include <stdio.h>
 
 int main() {
@@ -5,11 +7,13 @@ int main() {
 
     int keepWhile = 1;
     int contador = 0;
+    int contador2 = 0;
 
     int mult, result, resposta;
 
     // LAÇO PRINCIPAL
-    do
+    
+    while (keepWhile && contador < 100)
     {
         contador++;
 
@@ -39,7 +43,9 @@ int main() {
             // calcular result
             result = mult * i;
             
-            do {
+            do { 
+                contador2++;
+
                 printf("\nQuanto da [%d x %d = ?] \n> ", mult, i);
                 scanf("%d", &resposta);
 
@@ -56,15 +62,13 @@ int main() {
                 else {
                     printf("\nQue pena! Voce errou. Tente novamente.");
                 }
-            } while (resposta != result);
+            } while (resposta != result && contador2 < 100);
         }
 
-        printf("\nParabens! \nVoce completou a tabuada do %d \nDaleee!\n", 
+        printf("\nParabens! \nVoce completou a tabuada do %d. \nDaleee!\n", 
             mult
         );
-
-    // Fim do Do-While
-    } while (keepWhile && contador < 100);
+    }
 
     // Fim
     printf("\nPrograma encerrado.");
