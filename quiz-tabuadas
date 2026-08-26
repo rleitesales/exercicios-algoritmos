@@ -1,0 +1,72 @@
+#include <stdio.h>
+
+int main() {
+    printf("\n||Quiz das Tabuadas||\n");
+
+    int keepWhile = 1;
+    int contador = 0;
+
+    int mult, result, resposta;
+
+    // LAÇO PRINCIPAL
+    do
+    {
+        contador++;
+
+        printf("\nEsse eh o quiz das tabuadas!\nGostaria de continuar?\n");
+        printf("(1.Sim | 0.Nao)\n> ");
+        scanf("%d", &resposta);
+        switch (resposta)
+        {
+        case 0:
+            // Fim
+            printf("\nQue pena! Ate mais!\n\nPrograma encerrado.");
+            return 0;
+            break;
+        
+        default:
+            printf("\nOK! Vamos comecar.\n");
+            break;
+        }
+
+        printf("Digite um numero inteiro, guri(a): \n> ");
+        scanf("%d", &mult);
+
+        printf("\nOK!\nAgora, responda:\n");
+
+        for (int i = 1; i <= 10; i++)
+        {
+            // calcular result
+            result = mult * i;
+            
+            do {
+                printf("\nQuanto da [%d x %d = ?] \n> ", mult, i);
+                scanf("%d", &resposta);
+
+                // Se resposta == resultado correto, avança.
+                if (resposta == result)
+                {   
+                    printf("\nCerta resposta!\n");
+                    printf("[%d x %d = %d]\n", mult, i, result); // mostrar result correto
+                    
+                    if (i < 10) { // Só diz "PRÓXIMA!" quando realmente existir a tal ?
+                        printf("\nMuito bem.\nAgora, vamos para a proxima pergunta: \n");
+                    }
+                } 
+                else {
+                    printf("\nQue pena! Voce errou. Tente novamente.");
+                }
+            } while (resposta != result);
+        }
+
+        printf("\nParabens! \nVoce completou a tabuada do %d \nDaleee!\n", 
+            mult
+        );
+
+    // Fim do Do-While
+    } while (keepWhile && contador < 100);
+
+    // Fim
+    printf("\nPrograma encerrado.");
+    return 0;
+}
